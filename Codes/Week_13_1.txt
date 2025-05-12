@@ -1,0 +1,35 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+class A {
+    public:
+    int func() {
+        cout << "func" << endl;
+        return 0;
+        int a;
+    }
+};
+
+int main() {
+int a=0, b=10;
+try {
+    if(a==0)
+        throw 0;
+    b = b/a;
+} 
+catch (int i) {
+    cout << "int: " << i << endl;
+}
+catch (string s) {
+    cout << "string: " << s << endl;
+}
+// try on your compiler this should give you an error    
+A* ptr = new A;
+int c = ptr->func();
+delete ptr;
+ptr = nullptr;
+ptr->func();
+
+    
+}

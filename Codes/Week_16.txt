@@ -1,0 +1,116 @@
+// Week15Vectors.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class myClass {
+    int i;
+
+    public:
+        myClass(int i) {
+            this->i = i;
+        }
+        void printI() {
+            cout << i << endl;
+        }
+};
+
+int main()
+{
+    const int size = 10;
+
+    int numbers[size]; //array declaration
+
+    vector<int> v_numbers(size); //vector declaration
+
+    vector<int> v_dec_1(size);
+    vector<int> v_dec_2(size, 2);
+    vector<double> v_dec_3(size, 9.99);
+    vector<int> v_dec_4;
+
+   
+
+    for (int i = 0; i < v_dec_3.size(); i++) {
+        cout << (v_dec_3[i]) << endl;
+    }
+
+    //empty() : returns true or false
+    cout << "Empty: " << v_dec_4.empty() << endl;
+    v_dec_4.resize(4);
+    cout << "Empty: " << v_dec_4.empty() << endl;
+    v_dec_4.clear();
+    cout << "Empty: " << v_dec_4.empty() << endl;
+
+    //size() : returns current size
+    v_dec_4.push_back(1);
+    cout << "Size: " << v_dec_4.size() << endl;
+    v_dec_4.push_back(2);
+    cout << "Size: " << v_dec_4.size() << endl;
+    v_dec_4.push_back(3);
+    cout << "Size: " << v_dec_4.size() << endl;
+
+    //inserts value at specified position
+    v_dec_4.insert(v_dec_4.begin(), 20);
+    v_dec_4.insert(v_dec_4.begin()+2, 10);
+    v_dec_4.insert(v_dec_4.end(), 15);
+
+
+    // iterator
+    vector<int>::iterator iter;
+
+    for (iter = v_dec_4.begin(); iter != v_dec_4.end(); iter++) {
+        cout << *iter << endl;
+    }
+
+    vector<int> vec;
+    for (int i = 0; i < 6; i++) {
+        vec.push_back(i+1);
+    }
+    cout << "\n\n------------------------------\n\n";
+    for (int i = 0; i < vec.size(); i++) {
+        cout << vec[i];
+    }
+
+    vec.erase(vec.begin()+2);
+    cout << "\n\n------------------------------\n\n";
+    for (int i = 0; i < vec.size(); i++) {
+        cout << vec[i];
+    }
+    vec.pop_back();
+    cout << "\n\n------------------------------\n\n";
+    for (int i = 0; i < vec.size(); i++) {
+        cout << vec[i];
+    }
+    vec.erase(vec.begin(), vec.end());
+    cout << "\n\n------------------------------\n\n";
+    for (int i = 0; i < vec.size(); i++) {
+        cout << vec[i];
+    }
+
+    vector <myClass> myClassVector;
+
+    for (int i = 0; i < 6; i++) {
+        myClassVector.push_back(myClass(i+1));
+    }
+    cout << "\n\n------------------------------\n\n";
+    for (int i = 0; i < myClassVector.size(); i++) {
+        myClassVector[i].printI();
+    }
+
+
+
+}
+
+// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
+// Debug program: F5 or Debug > Start Debugging menu
+
+// Tips for Getting Started: 
+//   1. Use the Solution Explorer window to add/manage files
+//   2. Use the Team Explorer window to connect to source control
+//   3. Use the Output window to see build output and other messages
+//   4. Use the Error List window to view errors
+//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
+//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

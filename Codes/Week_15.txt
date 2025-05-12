@@ -1,0 +1,56 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+template <typename T> 
+T add (T var1, T var2, string text) {
+    return var1 + var2;
+}
+
+template<typename T, typename V>
+class A {
+    T var0;
+    V var1; 
+    int var2;
+    public:
+    A(){
+        var0 = 0.1f;
+        
+    }
+    A(T t, V v, int _var2) {
+        var0 = t;
+        var1 = v;
+        var2 = _var2;
+    }
+    T getVar0() {
+        return var0;
+    }
+    void setVar0(T v0) {
+        var0 = v0;
+    }
+};
+
+/*template<typename T>
+T operator+ (T a, A obj) {
+    return a;
+}*/
+
+
+int main() {
+    A <int,int> obj;
+    int a = obj.getVar0();
+    cout << a << endl; 
+    A obj2(1.2, 3, 2);
+    
+    
+    
+    string s = "hello";
+    cout << add(2.33, 2.33, s) << endl;
+    cout << add(1, 1, s) << endl;
+
+
+    
+    
+    
+    return 0;
+}

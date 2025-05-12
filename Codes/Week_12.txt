@@ -1,0 +1,46 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+class Base {
+    protected:
+    int a;
+    public:
+    //virtual void setA(int) = 0;
+    Base() {
+        a = 0;
+    }
+    Base(int i) {
+        a = i;
+    }
+    int getA(){
+        return a;
+    }
+    virtual void func() = 0;
+    virtual ~Base() {
+        cout << "Destroyed Base\n";
+    }
+};
+
+class Derived : public Base{
+    public:
+    Derived() : Base() {}
+    Derived(int i) : Base(i) {}
+    void func() override {
+        cout << "Overriden in Derived class : " << getA() << endl;
+    }
+    ~Derived() {
+        cout << "Destroyed Derived\n";
+    }
+};
+
+int main() {
+    //Base obj;
+    Base *ptr;
+    //ptr = new Base(10);
+    ptr = new Derived();
+    ptr->func();
+    Derived obj(10);
+    obj.func();
+    delete ptr;
+    return 0;
+}
